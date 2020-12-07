@@ -10,20 +10,17 @@ export const reducer = (state = initialstate, action) => {
             return newdata
         }
         case SET_VIDEO_LIST: {
-            // debugger
             const newState = { ...state, videoList: [...action.payload] };
             console.log('Reducer ', action, ' newstate ', newState);
             return newState;
         }
         case SEARCH_VIDEO_BY_VOICE: {
-            debugger
             const searchQuery = action.payload;
             let match='' , hidelvideo = state.videoListById.hidelvideo;
             for (var query of searchQuery.value) {
                 match = state.videoListById.data.find(el => query.includes(el.title));
                 if (match) {
                     console.log('Match found ', match);
-                    
                     break;
                 } else {
                     SimpleToast.show('My Questions are limited')

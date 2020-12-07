@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Headder from '../common/Headder';
 import { winsize, winheight } from '../config/assets/gloableconstant';
 import Video from 'react-native-video';
@@ -14,7 +14,7 @@ class Chatbot extends Component {
     console.log('ChatBot', props)
     Voice.onSpeechResults = (res) => {
       console.log('respond', res);
-      this.props.searchVideoByVoice(res);
+      this.props.searchVideoByVoice(res); 
     }
     this.state = {
       mute: false
@@ -43,7 +43,7 @@ class Chatbot extends Component {
           title={this.props.route.params.interact.name}
           navigation={this.props.navigation}
         />
-        <View style={{ height: winheight - 160, marginHorizontal: "2%", borderTopLeftRadius: 30, borderTopRightRadius: 30, backgroundColor: '#333' }}>
+        <View style={styles.imageviewer}>
           <Video
             ref={(ref) => {
               this.player = ref
@@ -57,7 +57,8 @@ class Chatbot extends Component {
             style={{
               width: '100%',
               height: '100%',
-              borderTopLeftRadius: 20
+              borderTopLeftRadius: 30,
+              borderTopRightRadius: 30
             }}
           />
           <TouchableOpacity
@@ -67,10 +68,10 @@ class Chatbot extends Component {
             <Speackericon mute={this.state.mute} />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={{ backgroundColor: "#3280dc", height: 100, width: 100, borderRadius: 50, position: 'absolute', top: winheight - 130, alignSelf: "center", alignItems: "center", justifyContent: 'center', }}
+        <TouchableOpacity style={styles.micbackgroung}
           onPress={() => Voice.start('en-US')}
         >
-          <Image source={require("../config/assets/mic.png")} style={{ height: 70, width: 70 }} />
+          <Image source={require("../config/assets/mic.png")} style={styles.micimg} />
         </TouchableOpacity>
       </View>
     );
@@ -88,6 +89,28 @@ const styles = StyleSheet.create({
     height: winheight,
     width: winsize
   },
+  imageviewer: {
+    height: winheight - 160,
+    marginHorizontal: "2%",
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    backgroundColor: '#333'
+  },
+  micimg: {
+    height: 70,
+    width: 70
+  },
+  micbackgroung: {
+    backgroundColor: "#3280dc",
+    height: 100,
+    width: 100,
+    borderRadius: 50,
+    position: 'absolute',
+    top: winheight - 130,
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: 'center'
+  }
 })
 const mapStateToProps = state => {
   console.log('Mmapstate to props ', state)

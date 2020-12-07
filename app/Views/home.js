@@ -19,7 +19,6 @@ class Home extends Component {
   }
 
   async componentDidMount() {
-    // debugger
     this.props.setVideoList(chatVideoData)
     await this.props.getdata(data)
 

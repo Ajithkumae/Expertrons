@@ -5,20 +5,20 @@ import { font, fontFamily, fontSize } from '../config/assets/gloableconstant';
 
 
 const Headder = (props) => {
-    const { maintitle, logo, backbtn, navigation,notifi, title, onpsress } = props
+    const { maintitle, logo, backbtn, navigation, notifi, title, onpsress } = props
     return (
         <View style={styles.container}>
             <View style={globalstyles.flexflowrow}>
                 {
                     logo &&
-                    <Image source={require("../config/assets/logo.png")} style={{ height: 50, width: 30, borderWidth: 1 }} />
+                    <Image source={require("../config/assets/logo.png")} style={styles.logo} />
                 }
                 {backbtn &&
                     <TouchableOpacity
-                    style={{marginTop:20 }}
-                        onPress={() => onpsress}
+                        style={{ marginTop: 20 }}
+                        onPress={() => navigation.goBack()}
                     >
-                        <Image source={require("../config/assets/back_white.png")} style={{ height: 30, width: 30}} />
+                        <Image source={require("../config/assets/back_white.png")} style={styles.backnav} />
                     </TouchableOpacity>
                 }
                 {
@@ -30,11 +30,11 @@ const Headder = (props) => {
                 }
                 {
                     title &&
-                    <Text style={{ marginTop:20,fontFamily: fontFamily.bold,color:"white" ,fontSize:fontSize.larger,marginLeft:"30%"}}  > {title} </Text>
+                    <Text style={{ marginTop: 20, fontFamily: fontFamily.bold, color: "white", fontSize: fontSize.larger, marginLeft: "30%" }}  > {title} </Text>
                 }
                 {
                     notifi &&
-                    <Image source={require("../config/assets/Bell.png")} style={{marginTop:10, height: 30, width: 30}} />
+                    <Image source={require("../config/assets/Bell.png")} style={styles.notification} />
                 }
             </View>
         </View>
@@ -46,5 +46,20 @@ const styles = StyleSheet.create({
         paddingBottom: 15,
         width: "100%",
     },
+    logo: {
+        height: 50,
+        width: 30,
+        borderWidth: 1
+    },
+    notification: {
+        marginTop: 10,
+        height: 30,
+        width: 30
+    },
+    backnav: {
+        height: 30,
+        width: 30
+    }
+
 })
 export default Headder
