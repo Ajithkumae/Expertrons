@@ -1,0 +1,24 @@
+[
+    {
+        "type": "reactangle_card",
+        "data": [
+            {
+                "id": 1,
+                "name": "Sakshi Solanki",
+                "work": "Morgan Stanley (Operation Analyst)",
+                "image":"https://expertrons-v2.s3.ap-south-1.amazonaws.com/users/5e6ea72adb1e5e13ab366c5c/photo/Sakshi.jpeg"
+            },{
+                "id": 2,
+                "name": "Anchal Yadav",
+                "work": "TCS (Software Engineer)",
+                "image":"https://expertrons-v2.s3.ap-south-1.amazonaws.com/users/5e6ea66bdb1e5e13ab3667d0/photo/Anchal.jpg"
+            },{
+                "id": 3,
+                "name": "Sumeet Hinduja",
+                "work": "Capgemini (Consultant)",
+                "image":"https://expertrons-v2.s3.ap-south-1.amazonaws.com/users/5e6ea764db1e5e13ab366d74/photo/Sumeet.JPG"
+            }
+        ]
+    }
+   
+]
